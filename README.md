@@ -2,48 +2,86 @@
 
 **角色**：ODM 供應鏈公司的 Data Engineer，往 Solution Architect 轉型
 **目標**：掌握 DE 技術棧 + 建立 SA 架構思維
+**更新：2026-05-10（W19 週總結）**
 
-## 進度總覽（更新：2026-04-12）
+---
 
-### 主修（DE Core）
+## 🗺️ 進度總覽
+
+### 🔵 主修（DE Core）
+
 | 科目 | Topics 完成 | 總 Topics | 目標完成日 | 狀態 |
 |------|------------|----------|-----------|------|
-| PySpark | 3 | 15 | 2026-05-06 | 🔴 落後（執行模型、Spark UI、Lazy Eval） |
-| Airflow | 1 | 15 | 2026-05-06 | 🔴 落後（XCom） |
-| Delta-Lake | 1 | 14 | 2026-05-01 | 🔴 落後（OPTIMIZE） |
-| Data-Warehouse | 2 | 13 | 2026-05-01 | 🟡 部分（Fact/Dim + Star Schema） |
-| dbt | 1 | 12 | 2026-04-26 | 🔴 落後 |
-| Great-Expectations | 0 ⚠️ | 10 | 2026-04-21 | 🔴 未開始 |
+| PySpark | 6 | 15 | 2026-05-20 | 🟡 進行中（Shuffle → Broadcast Join 下一課）|
+| Airflow | 3 | 15 | 2026-05-20 | 🟡 進行中（XCom ✅ XCom限制 ✅ Sensor ✅）|
+| Delta-Lake | 3 | 14 | 2026-05-20 | 🟡 進行中（OPTIMIZE ✅ VACUUM ✅ Z-ORDER ✅）|
+| Data-Warehouse | 3 | 13 | 2026-05-20 | 🟡 進行中（Fact/Dim ✅ Star ✅ Snowflake ✅）|
+| dbt | 1 | 12 | 延後 | 🟠 待繼續 |
+| Great-Expectations | 0 | 10 | 延後 | ⬜ 未開始 |
 
-### 輔修A（SA 核心）
-| 科目 | Topics 完成 | 總 Topics | 狀態 |
-|------|------------|----------|------|
-| System-Design | 1 | 12 | 🟡（CAP Theorem ✅） |
-| Supply-Chain-Domain | 0 | 12 | 🔴 未開始（明天！） |
+### 🟠 輔修A（SA 核心）
 
-### 輔修B（技術廣度）
 | 科目 | Topics 完成 | 狀態 |
 |------|------------|------|
-| Cloud-Architecture | 1 | 🟡（Azure 全景 ✅） |
-| 其他 7 科 | 0 | ⬜ 未開始 |
+| System-Design | 1 | 🟡（CAP Theorem ✅，ACID vs BASE 下一課）|
+| Supply-Chain-Domain | 7（daily）| 🟢 SC Daily 持續進行中 |
 
-## 本週（W15）學習摘要
+### ⚪ 輔修B（技術廣度）
 
-- PySpark：Lazy Evaluation 深度 — Catalyst filter merge 實驗驗證，ODM 採購 ETL 反模式診斷
-- 第一個有 git commit 的練習代碼！PySpark/practice/lazy-evaluation/
+| 科目 | Topics 完成 | 狀態 |
+|------|------------|------|
+| Cloud-Architecture | 1 | 🟡（Azure 全景 ✅）|
+| DevOps-CICD | 1 | 🟡（CI/CD 基礎 ✅，本週開箱！）|
+| Docker-K8s | 1 | 🟠 待繼續 |
+| 其他 5 科 | 0 | ⬜ 未開始 |
 
-## W13–W14 回顧
+---
 
-- System-Design：CAP Theorem（CP vs AP 選型）
-- Delta-Lake：OPTIMIZE 小檔案 bin-packing
-- Data-Warehouse：Fact/Dim 設計 + Star Schema Kimball 四步法（ERD 設計完整）
-- Cloud-Architecture：Azure 服務全景分類
+## 📅 W19 學習足跡（2026-05-04 ~ 2026-05-10）
 
-## ⚠️ 緊急事項
+| 日期 | 軌道 | 科目 | 主題 | 練習 |
+|------|------|------|------|------|
+| 05-07 | 🔵 main | Delta-Lake | VACUUM：歷史版本清理 | ✅ |
+| 05-08 | ⚪ suppB | DevOps-CICD | CI/CD 是什麼 | ✅ |
+| 05-09 | 🔵 main | Delta-Lake | Z-ORDER 多維聚簇 | ✅ |
+| 05-10 | 🔵 main | Data-Warehouse | Snowflake Schema | ✅ |
 
-- **Airflow 2 EOL = 2026-04-22（剩 10 天）** → `airflow-vs-lakeflow-migration` Evergreen 本週內完成
+**SC Daily 加課**：Ramp-up Time (#5) / Trial Run (#6) / Ramp-down (#7)
 
-## 資料夾結構
+**本週最大洞察：**
+> Star Schema（1 JOIN）+ Delta Lake OPTIMIZE/VACUUM/Z-ORDER = Lakehouse 最優架構公式
+
+---
+
+## 📚 W19 之前累積足跡
+
+| 週次 | 主要學習 |
+|------|---------|
+| W12 | PySpark 執行模型、Spark UI、Lazy Evaluation |
+| W13 | CAP Theorem (System-Design), Delta-Lake OPTIMIZE, Star Schema, Azure 全景 |
+| W15 | PySpark Partition, repartition vs coalesce, Data-Warehouse Fact/Dim |
+| W16 | PySpark Shuffle, Data-Warehouse Star Schema（Kimball 四步法）|
+| W17 | PySpark Broadcast Join, Airflow XCom |
+| W18 | Airflow XCom 最佳實踐, Delta-Lake OPTIMIZE（深度）|
+| W19 | Delta-Lake VACUUM + Z-ORDER, DevOps-CICD 開箱, Snowflake Schema |
+
+---
+
+## 🧠 Knowledge Graph（2026-05-10）
+
+**節點：11 | 邊：14**
+
+核心連結（已建立）：
+- `delta-lake-optimize` → solved_by → `pyspark-shuffle`（小檔案影響 Spark 讀取效能）
+- `z-order-clustering` → contrasts_with → `partition`（file-level vs partition-level）
+- `snowflake-schema` → depends_on → `pyspark-shuffle`（多 JOIN = 多 Shuffle）
+- `snowflake-schema` → contrasts_with → `z-order-clustering`（多 JOIN 吃掉 Z-ORDER 效益）
+
+缺口：liquid-clustering（被引用但節點不存在），Airflow 3 nodes 未入圖
+
+---
+
+## 🗂️ 資料夾結構
 
 ```
 <subject>/
