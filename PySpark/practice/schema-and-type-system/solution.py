@@ -121,10 +121,14 @@ print(f"  差異：{(t_infer - t_explicit) / t_explicit * 100:+.1f}%")
 
 # -- 2c. 型別推斷比較
 print("\n  型別推斷差異：")
-for fi, fe in zip(df_inferred.schema.fields, df_explicit.schema.fields):
+inferred_by_name = {f.name: f for f in df_inferred.schema.fields}
+explicit_by_name = {f.name: f for f in df_explicit.schema.fields}
+for name in [f.name for f in bom_schema.fields]:
+    fi = inferred_by_name[name]
+    fe = explicit_by_name[name]
     match = "✅" if fi.dataType == fe.dataType else "❌"
     if fi.dataType != fe.dataType:
-        print(f"    {match} {fi.name}: inferred={fi.dataType.simpleString()} vs explicit={fe.dataType.simpleString()}")
+        print(f"    {match} {name}: inferred={fi.dataType.simpleString()} vs explicit={fe.dataType.simpleString()}")
 
 # quantity_per 可能被推斷為 double 而非 decimal
 inferred_qty_type = df_inferred.schema["quantity_per"].dataType.simpleString()
@@ -245,10 +249,10 @@ print(f"\n  💡 PySpark 4.x nullable 行為總結：")
 print(f"     1. createDataFrame(verifySchema=True)：Python 層檢查，擋住 null ✅")
 print(f"     2. createDataFrame(verifySchema=False)：JVM codegen NPE 💥")
 print(f"        Spark 4.x codegen 假設 non-nullable 不會是 null，直接 crash")
-print(f"     3. read.schema().json()：JSON reader 會把 null 填入，不管 nullable flag")
-print(f"        → 生產最常見場景！Schema 控制不了來源資料的品質")
-print(f"     → 結論：nullable 是 Catalyst 優化提示 + codegen 安全提示")
-print(f"     → 資料品質檢查必須用 GX/dbt test，不能依賴 nullable 標記")
+print(f"     3. File reader：nullable flag 不是 data quality validation gate")
+print(f"        → 生產最常見場景！讀檔後仍要顯式檢查 null")
+print(f"     → 結論：nullable 是資料契約 + Catalyst/codegen 安全提示")
+print(f"     → 資料品質檢查必須用 GX/dbt test 或 isNull 聚合，不能只依賴 nullable 標記")
 
 # ====================================================================
 # 5. Schema 序列化/反序列化（版本控制）
@@ -374,8 +378,8 @@ print("""
   2. 財務/BOM 計算用 DecimalType，不用 DoubleType
      → 10 層 BOM 展開，Double 的累積誤差可能影響財務報表
 
-  3. nullable=False 不是約束，是優化提示
-     → Spark 不會拒絕 null 值，需要額外的 data quality check
+  3. nullable=False 不是完整的品質規則
+     → createDataFrame 會檢查，但檔案來源仍要額外做 data quality check
 
   4. Schema JSON 存入 Git 做版本控制
      → 每次 ECO / schema 變更都有 audit trail
