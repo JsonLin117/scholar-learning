@@ -2,7 +2,7 @@
 
 **角色**：ODM 供應鏈公司的 Data Engineer，往 Solution Architect 轉型
 **目標**：掌握 DE 技術棧 + 建立 SA 架構思維
-**更新：2026-05-17（W20 週總結）**
+**更新：2026-05-31（W22 週總結）**
 
 ---
 
@@ -10,93 +10,122 @@
 
 ### 🔵 主修（DE Core）
 
-| 科目 | Topics 完成 | 總 Topics | 目標完成日 | 狀態 |
-|------|------------|----------|-----------|------|
-| PySpark | **7** | 15 | 延後 | 🟢 Milestone 2 ✅（Shuffle→Broadcast Join 掌握）|
-| Airflow | **4** | 15 | 延後 | 🟡 進行中（XCom ✅ Sensor ✅ Connection&Hook ✅）|
-| Delta-Lake | **4** | 14 | 延後 | 🟡 進行中（OPTIMIZE ✅ VACUUM ✅ Z-ORDER ✅ Liquid Clustering ✅）|
-| Data-Warehouse | **3** | 13 | 延後 | 🔴 進度落後（Fact/Dim ✅ Star ✅ Snowflake ✅）|
-| dbt | **2** | 12 | 延後 | 🟡 進行中（概念入門 ✅ Models/Sources/Refs ✅）|
-| Great-Expectations | **1** | 10 | 延後 | 🟡 本週開啟（核心概念 ✅）|
+| 科目 | Topics 完成 | 總 Topics | 進度 | 狀態 |
+|------|------------|----------|------|------|
+| PySpark | **9** | 15 | 60% | 🟢 Schema & Type System ✅（本週）|
+| Airflow | **7** | 15 | 47% | 🟢 Trigger Rule ✅（本週）|
+| Delta-Lake | **5** | 14 | 36% | 🟡 Time Travel ✅（本週）|
+| Data-Warehouse | **5** | 13 | 38% | 🟡 SCD Type 2 ✅（本週）|
+| dbt | **4** | 12 | 33% | 🟡 Tests ✅（本週）|
 
 ### 🟠 輔修A（SA 核心）
 
-| 科目 | Topics 完成 | 狀態 |
-|------|------------|------|
-| System-Design | **2** | 🟡（CAP Theorem ✅ ACID vs BASE ✅）|
-| Supply-Chain-Domain | **2** suppA + **15** daily | 🟢 SC Daily 持續進行中 |
+| 科目 | Topics 完成 | 本週 | 狀態 |
+|------|------------|------|------|
+| System-Design | **3** | — | 🟡（CAP / ACID vs BASE / Microservices vs Monolith）|
+| Supply-Chain-Domain | **3** suppA + **29** daily | #23~#29（採購完整鏈）| 🟢 持續進行 |
 
 ### ⚪ 輔修B（技術廣度）
 
-| 科目 | Topics 完成 | 狀態 |
-|------|------------|------|
-| Cloud-Architecture | 1 | 🟡（Azure 全景 ✅）|
-| DevOps-CICD | 1 | 🟡（CI/CD 基礎 ✅）|
-| Docker-K8s | 1 | 🟠 待繼續 |
-| 其他 5 科 | 0 | ⬜ 未開始（Kafka 下週開箱！）|
+| 科目 | Topics 完成 | 本週 | 狀態 |
+|------|------------|------|------|
+| Flink | **1** | Stream Processing vs Batch ✅ | 🟡 開箱 |
+| Kafka | **1** | — | 🟡 消息佇列基礎 |
+| Great-Expectations | **1** | — | 🟡 核心概念 |
+| Cloud-Architecture | 1 | — | 🟠 待繼續 |
+| 其他 4 科 | 0 | — | ⬜ 未開始 |
 
 ---
 
-## 📅 W20 學習足跡（2026-05-11 ~ 2026-05-17）✅ 全勤
+## 📅 W22 學習足跡（2026-05-25 ~ 2026-05-31）✅ 全勤 7/7 天
 
 | 日期 | 軌道 | 科目 | 主題 | 自評 | 練習 |
 |------|------|------|------|------|------|
-| 05-11 | 🟠 suppA | System-Design | ACID vs BASE：資料庫一致性模型 | 4/5 | ✅ |
-| 05-12 | 🔵 main | dbt | dbt 核心概念：Models / Sources / Refs | 4/5 | ✅ |
-| 05-13 | 🔵 main | PySpark | Broadcast Join：消滅大表 JOIN 的 Shuffle | **5/5 🏆** | ✅ |
-| 05-14 | ⚪ suppB | Great-Expectations | GX 核心概念 | 4/5 | ✅ |
-| 05-15 | 🔵 main | Airflow | Connection & Hook + Secrets Backend | 4/5 | ✅ |
-| 05-16 | 🔵 main | Delta-Lake | Liquid Clustering：下一代資料佈局 | 4/5 | ✅ |
-| 05-17 | 🟠 suppA | Supply-Chain | CSP 客戶結構（Hyperscaler 需求特性）| 4/5 | ✅ |
+| 05-25 | 🔵 main | Delta-Lake | Time Travel：VERSION/TIMESTAMP AS OF, RESTORE, Retention | 4/5 | ✅ |
+| 05-26 | ⚪ suppB | Flink | Stream Processing vs Batch：Event Time / Watermark / Checkpoint | 4/5 | ✅ |
+| 05-27 | 🔵 main | Data-Warehouse | SCD Type 2：UNION 展開法 MERGE、Surrogate Key | 4/5 | ✅ |
+| 05-28 | 🔵 main | dbt | Tests：Generic / Singular / Unit + severity / store_failures | 4/5 | ✅ |
+| 05-29 | 🟠 suppA | Supply-Chain | 組織架構深度：RACI Matrix + RBAC 映射 + AVL 狀態機 | 4/5 | ✅ |
+| 05-30 | 🔵 main | PySpark | Schema 與型別系統：StructType / DecimalType / nullable 陷阱 | 4/5 | ✅ |
+| 05-31 | 🔵 main | Airflow | Trigger Rule：11 種規則、Skip Cascade、分支合併 | 4/5 | ✅ |
 
-**SC Daily 加課（#9~#15）**：PMC / Shop Floor / Pallet / Carton / Pallet-Carton ID / BOM / Lead Time
+**SC Daily 加課（#23~#29）**：P2P 流程 / 採購分類 / MRO / AVL / 供應商績效 / LTA合約 / 備料策略
 
 **本週最大洞察：**
-> 本週七個 topic 打通了 DE Pipeline 全鏈路：
-> Airflow Connection（Secrets）→ GX（品質驗證）→ dbt（ELT Transform）→ Delta Lake Liquid Clustering（儲存）→ PySpark Broadcast Join（查詢）→ ACID/BASE（一致性）
+> **ODM 採購資料品質管線雛形**
+>
+> 技術棧（Airflow Trigger Rules + Delta Lake Time Travel + SCD Type 2 + dbt Tests + Flink）
+> 與本週 SC Daily（P2P→AVL→供應商績效→備料策略）天然組成一個完整架構：
+>
+> `P2P 採購事件` → `Airflow 容錯策略` → `Delta Lake SCD Type 2 供應商歷史` → `dbt Tests 資料品質` → `Time Travel 審計` / `Flink 實時短缺告警`
+>
+> 這是 SA 思維的體現：看到技術的業務連結，而不只是孤立的工具。
 
 ---
 
-## 🧠 Knowledge Graph（2026-05-17）
+## 📅 W21 學習足跡（2026-05-18 ~ 2026-05-24）✅ 全勤
 
-**節點：27 | 邊：63**（W19 結束時：11/14）
+| 日期 | 軌道 | 科目 | 主題 | 自評 | 練習 |
+|------|------|------|------|------|------|
+| 05-18 | 🔵 main | Data-Warehouse | SCD Type 1：直接覆寫（MERGE upsert）| 4/5 | ✅ |
+| 05-19 | 🔵 main | dbt | Materialization：5 種物化策略 + 4 種 incremental 策略 | 5/5 | ✅ |
+| 05-20 | ⚪ suppB | Kafka | 為什麼需要消息佇列：同步 vs 非同步 + 三層解耦 | 4/5 | ✅ |
+| 05-21 | 🔵 main | PySpark | cache() vs persist()：DataFrame 快取機制 | 4/5 | ✅ |
+| 05-22 | 🔵 main | Airflow | Variable 與 Secret Backend：設定管理四層搜尋 | 4/5 | ✅ |
+| 05-23 | 🟠 suppA | System-Design | Microservices vs Monolith：架構光譜選型 | 4/5 | ✅ |
+| 05-24 | 🔵 main | Airflow | TaskFlow API：@task 裝飾器 + XComArg + expand() | 4/5 | ✅ |
 
-**本週新增 16 節點：**
-`acid-vs-base` · `dbt-core-concepts` · `broadcast-join` · `great-expectations-core-concepts` · `airflow-connection-hook` · `liquid-clustering` · `csp-customer-structure` · `lead-time-types` · `pmc` · `shop-floor` · `pallet` · `carton` · `pallet-carton-id` · `bom` · `ramp-up-time`（前週）
-
-**關鍵 Graph 邏輯：**
-- `broadcast-join` → solved_by → `pyspark-shuffle`（消滅 Shuffle）
-- `liquid-clustering` → extends → `z-order-clustering`（進化路線）
-- `csp-customer-structure` → depends_on → `bom-bill-of-materials`（業務複雜度根源）
-- `airflow-connection-hook` → used_in → `great-expectations-core-concepts`（Pipeline 協作）
-
----
-
-## 📚 歷史週次足跡
-
-| 週次 | 主要學習 |
-|------|---------|
-| W12 | PySpark 執行模型、Spark UI、Lazy Evaluation |
-| W13 | PySpark Partition、repartition vs coalesce |
-| W14 | PySpark Shuffle、Airflow XCom |
-| W15-W16 | Delta Lake OPTIMIZE、Cloud-Architecture |
-| W17 | Docker-K8s 基礎、System-Design CAP Theorem |
-| W18 | Airflow XCom 限制 + Sensor；Delta Lake 深度 |
-| W19 | Delta Lake VACUUM + Z-ORDER；Data-Warehouse Snowflake Schema；DevOps-CICD 入門 |
-| **W20** | **ACID/BASE, dbt, Broadcast Join, GX, Airflow Hook, Liquid Clustering, CSP** |
+**SC Daily（#16~#22）**：MRP / MPS / S&OP / Capacity Planning / Safety Stock / 需求預測 / DDMRP
 
 ---
 
-## 🗂️ 資料夾結構
+## 🧠 Knowledge Graph（2026-05-31）
 
-```
-<subject>/
-├── README.md          # 科目總覽
-├── notes/             # 學習筆記（Obsidian 同步版）
-└── practice/          # 實作練習代碼
-    └── <topic-slug>/
-        ├── README.md  # 場景描述 + 解題思路
-        └── solution.py (或 .sql / .yaml / ...)
-```
+**節點總數：** ~52 個概念節點
+**邊總數：** ~80+ 個關係邊
+**本週新增節點：** time-travel-version-history / stream-processing-vs-batch / scd-type-2 / dbt-tests-schema-tests / sc-org-architecture-deep / schema-and-type-system / trigger-rule
 
-## 每日學習由 Scholar Agent 自動更新
+**主要知識連結（本週新增）：**
+- `scd-type-2` → `enables` → `vendor-avl-history-tracking`
+- `delta-time-travel` → `enables` → `procurement-audit-trail`
+- `dbt-tests` → `contrasts_with` → `great-expectations-checkpoint`
+- `trigger-rule` → `used_in` → `odm-shortage-handling-pipeline`
+- `stream-processing-vs-batch` → `contrasts_with` → `spark-structured-streaming`
+
+---
+
+## 🔁 Spaced Repetition 狀態（2026-05-31）
+
+- **總卡片數：** 56 張
+- **本週新增：** 16 張（採購知識鏈佔大多數）
+- **下週到期（06-01~06-07）：** ~15 張
+- **積壓警告：** SR 卡片仍偏多，持續每天 Phase B 消化
+
+---
+
+## 🏆 認證備考路線圖
+
+| 認證 | 目標日期 | 狀態 |
+|------|---------|------|
+| Databricks Data Engineer Associate | 2026-09-30 | ⬜ 準備中 |
+| dbt Analytics Engineering | 2026-09-30 | ⬜ 準備中 |
+| Claude Certified Architect Foundations | 2026-08-31 | ⬜ 準備中 |
+| AWS Cloud Practitioner | 2026-10-31 | ⬜ 準備中 |
+| AWS Data Engineer Associate | 2026-11-30 | ⬜ 準備中 |
+
+certRotationFrequency=2（每兩次 suppB 輪次插入一次認證備考）
+
+---
+
+## 📋 每週進度歷史
+
+| 週次 | 主要主題 | 完成天數 |
+|------|---------|---------|
+| W12（3/16~3/22）| 課程啟動，PySpark 執行模型 | 7/7 |
+| W15（4/6~4/12）| 出差補記期，部分中斷 | — |
+| W17（4/20~4/26）| Airflow XCom / Sensor | 7/7 |
+| W18（4/27~5/3）| Delta Lake OPTIMIZE / Z-ORDER | 7/7 |
+| W19（5/4~5/10）| DW Star Schema / Snowflake Schema | 7/7 |
+| W20（5/11~5/17）| GX / Airflow Connection / PySpark Broadcast | 7/7 |
+| W21（5/18~5/24）| SCD Type 1 / dbt Materialization / Kafka | 7/7 |
+| W22（5/25~5/31）| **採購知識鏈完整 + 資料管線品質技術棧** | **7/7** |
