@@ -269,6 +269,10 @@ class MockClaudeAgent:
             self.avl_info[result["part_number"]] = result
         elif tool_name == "send_alert":
             self.alerts_sent.append({"part": self.current_part, "status": result["status"]})
+            # 告警送出代表這個物料的處理鏈已完成。
+            # 真實 Agent Loop 中，Claude 看到 send_alert 的 tool_result 後應進入下一個物料；
+            # 這裡在 mock state 中明確推進，避免重複 assess_severity。
+            self.current_part_idx += 1
 
 
 # ============================================================
