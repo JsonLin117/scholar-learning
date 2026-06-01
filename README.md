@@ -2,7 +2,7 @@
 
 **角色**：ODM 供應鏈公司的 Data Engineer，往 Solution Architect 轉型
 **目標**：掌握 DE 技術棧 + 建立 SA 架構思維
-**更新：2026-05-31（W22 週總結）**
+**更新：2026-06-01（5 月月總結）**
 
 ---
 
@@ -113,7 +113,56 @@
 | AWS Cloud Practitioner | 2026-10-31 | ⬜ 準備中 |
 | AWS Data Engineer Associate | 2026-11-30 | ⬜ 準備中 |
 
-certRotationFrequency=2（每兩次 suppB 輪次插入一次認證備考）
+certRotationFrequency=1（每次 suppB 輪次都插入一次認證備考）
+
+**認證進度：**
+- Cert-Claude-Architect：topics[1]/16 — D1 Agent Loop 機制 ✅（2026-06-01）
+
+---
+
+---
+
+## 📅 W23 W1 學習足跡（2026-06-01）🆕 六月開始
+
+| 日期 | 軌道 | 科目 | 主題 | 自評 | 練習 |
+|------|------|------|------|------|------|
+| 06-01 | 🏆 cert | Cert-Claude-Architect | D1 Agent Loop 機制：stop_reason 協議、三大反模式、Hub-and-Spoke | 4/5 | ✅ |
+
+**SC Daily #30**：缺料管理（Expedite / Premium Freight / 根因分析）
+
+---
+
+## 📊 2026 年 5 月月總結
+
+> 涵蓋：2026-05-01 ~ 2026-05-31 | 完整報告：`Scholar/Monthly/2026-05-summary.md`
+
+### 月份關鍵數字
+
+| 指標 | 數值 |
+|------|------|
+| 有效學習日 | **25 天**（月中後連續 25 天全勤）|
+| 學習主題數 | **25 個**技術 topics |
+| SC Daily 完成 | **25 個**（#5 → #29，採購完整鏈）|
+| dayCount 增量 | **14 → 40**（+26 天）|
+| Knowledge Graph | 11 節點 / 14 邊 → **57+ 節點 / 180+ 邊** |
+| SR 卡片累積 | 12 張 → **48 張** |
+
+### 本月最重要進展
+
+1. **第一個完整 DE Pipeline 架構圖成形**
+   `Source (Airflow)` → `Validation (GX)` → `Transform (dbt)` → `Storage (Delta Lake LC)` → `Query (PySpark Broadcast Join)`
+
+2. **採購資料品質管線雛形**（W22 核心發現）
+   P2P 採購事件 × Airflow Trigger Rules × SCD Type 2 × dbt Tests × Time Travel × Flink 實時告警
+
+3. **供應鏈知識密度關鍵轉折**：首次能描述「一台伺服器的一生」完整流程
+
+4. **認證備考啟動**：certRotationFrequency 改為 1，Claude Architect 第一個開始
+
+### 月度 SA 自省
+
+> 5 月是從「學技術」到「看架構」的轉折月。
+> 技術×業務交叉點開始自然出現——不再是硬湊場景，而是學完技術後自然想到 ODM 應用。
 
 ---
 
